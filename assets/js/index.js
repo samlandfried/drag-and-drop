@@ -18,7 +18,7 @@ const appendTodo = todo => {
   const li = document.createElement('li')
 
   li.innerText = todo;
-  li.id = parseInt(lastId) + 1;
+  li.id = parseInt(lastId) + 1 || 1;
   li.className = 'list-group-item';
   list.appendChild(li);
 };
