@@ -1,16 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form')
-
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    const input = event.target.querySelector('input[type="text"]');
-    const todo = input.value;
-
-    appendTodo(todo);
-    input.value = '';
-  }); 
-});
-
 const appendTodo = todo => {
   const list = document.querySelector('ol');
   const listItems = list.querySelectorAll('li');
@@ -29,3 +16,16 @@ const destroyTodo = id => {
   const todo = list.querySelector(`[id='${id}']`);
   return list.removeChild(todo); 
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form')
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const input = event.target.querySelector('input[type="text"]');
+    const todo = input.value;
+
+    appendTodo(todo);
+    input.value = '';
+  }); 
+});
