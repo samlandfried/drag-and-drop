@@ -14,11 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
 const appendTodo = todo => {
   const list = document.querySelector('ol');
   const listItems = list.querySelectorAll('li');
-  const lastId = listItems.item(list.childElementCount - 1).id;
+  const lastListItem = listItems.item(list.childElementCount - 1);
+  const lastId = lastListItem ? lastListItem.id : 0;
   const li = document.createElement('li')
 
   li.innerText = todo;
-  li.id = parseInt(lastId) + 1 || 1;
+  li.id = parseInt(lastId) + 1;
   li.className = 'list-group-item';
   list.appendChild(li);
 };
