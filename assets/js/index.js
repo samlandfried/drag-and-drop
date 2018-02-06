@@ -41,7 +41,7 @@ const dragLeaveHandler = event => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  ['Herd cats', 'Juggle manatees', 'Wrestle horses'].forEach(appendTodo);
+  ['Write script', 'Record screen', 'Publish to The Frontier'].forEach(appendTodo);
 
   const form = document.querySelector('form');
   const trash = document.querySelector('img');
