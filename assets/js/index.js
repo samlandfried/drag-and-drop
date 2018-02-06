@@ -22,6 +22,13 @@ const dragStartHandler = event => {
   const id = event.target.id;
 
   event.dataTransfer.setData('text/plain', id);
+  event.dataTransfer.effectAllowed = 'move';
+};
+
+const dropHandler = event => {
+  const id = event.dataTransfer.getData('text/plain');
+
+  destroyTodo(id);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -40,3 +47,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('dragstart', dragStartHandler);
+document.addEventListener('drop', dropHandler);
