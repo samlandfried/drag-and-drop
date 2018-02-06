@@ -8,6 +8,7 @@ const appendTodo = todo => {
   li.innerText = todo;
   li.id = parseInt(lastId) + 1;
   li.className = 'list-group-item';
+  li.setAttribute('draggable', true);
   list.appendChild(li);
 };
 
@@ -17,7 +18,15 @@ const destroyTodo = id => {
   return list.removeChild(todo); 
 };
 
+const dragStartHandler = event => {
+  const id = event.target.id;
+
+  event.dataTransfer.setData('text/plain', id);
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+  ['Wrangle manatees', 'Educate narwhals', 'Civilize sea cucumbers'].forEach(appendTodo);
+
   const form = document.querySelector('form')
 
   form.addEventListener('submit', event => {
@@ -29,3 +38,5 @@ document.addEventListener('DOMContentLoaded', () => {
     input.value = '';
   }); 
 });
+
+document.addEventListener('dragstart', dragStartHandler);
